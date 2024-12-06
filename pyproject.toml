@@ -1,8 +1,8 @@
 [project]
 name = "blogger_agent"
 version = "0.1.0"
-description = "blogger_agent using crewAI"
-authors = [{ name = "Your Name", email = "you@example.com" }]
+description = "blogger_agent for learnaiwithus.codes"
+authors = [{ name = "Sudeep S Patil", email = "sudeepspdeveloper@gmail.com" }]
 requires-python = ">=3.10,<=3.13"
 dependencies = [
     "crewai[tools]>=0.86.0,<1.0.0"
