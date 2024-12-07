@@ -1,4 +1,3 @@
 .env
 __pycache__/
-.venv/
-uv.lock
+new_blog.md
