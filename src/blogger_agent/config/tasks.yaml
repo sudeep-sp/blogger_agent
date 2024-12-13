@@ -26,11 +26,15 @@ content_creation_task:
 seo_optimization_task:
   description: >
     Optimize the completed blog post about {topic} for search engines.
-    Research relevant keywords for the topic and integrate them naturally into the content.
-    Write a meta description, create an SEO-friendly title, and suggest any improvements for better readability and ranking.
+    Research and identify relevant keywords for the topic and seamlessly integrate them into the blog content.
+    Revise the title to be SEO-friendly while maintaining reader engagement.
+    Improve readability and formatting for a better user experience and search ranking.
   expected_output: >
     An optimized version of the blog post with:
-    - Keywords highlighted and naturally incorporated
-    - SEO-friendly title and meta description
-    - Suggestions for additional improvements if needed
+    - Keywords naturally incorporated into the content
+    - A revised, SEO-friendly title integrated into the blog
+    - Inline improvements to readability, structure, or flow, if necessary
+    - dont include the preamble, blog need to start with title and end with conclusion.
+    - the response should be in html format only body part. and body should have 2 divs, one for title and another for content.
+    for headings give strong tag
   agent: SEO_Analyst

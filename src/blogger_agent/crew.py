@@ -2,6 +2,12 @@ from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
 
 search_tool = SerperDevTool(api_key=os.getenv("SERPER_API_KEY"))
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -25,20 +31,25 @@ class BloggerAgent():
         api_key=GROQ_API_KEY
     )
 
+    openai_llm = LLM(
+        model="gpt-4o-mini",
+        temperature=0.7,
+    )
+
     @agent
     def Content_Strategist(self) -> Agent:
         return Agent(
             config=self.agents_config['Content_Strategist'],
-            verbose=True,
+            # verbose=True,
             tool=[search_tool],
-            llm=self.llama_llm
+            llm=self.openai_llm
         )
 
     @agent
     def Creative_Blogger(self) -> Agent:
         return Agent(
             config=self.agents_config['Creative_Blogger'],
-            verbose=True,
+            # verbose=True,
             llm=self.groq_llm
         )
 
@@ -46,8 +57,8 @@ class BloggerAgent():
     def SEO_Analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['SEO_Analyst'],
-            verbose=True,
-            llm=self.llama_llm
+            # verbose=True,
+            llm=self.openai_llm
         )
 
     @task
