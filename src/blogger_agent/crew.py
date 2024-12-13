@@ -30,7 +30,7 @@ class BloggerAgent():
         return Agent(
             config=self.agents_config['Content_Strategist'],
             verbose=True,
-            tool=search_tool,
+            tool=[search_tool],
             llm=self.llama_llm
         )
 
