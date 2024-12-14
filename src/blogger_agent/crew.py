@@ -35,13 +35,23 @@ class BloggerAgent():
         model="gpt-4o-mini",
         temperature=0.7,
     )
+    openai_4o = LLM(
+        model="gpt-4o",
+        temperature=0.7,
+    )
+
+    @agent
+    def AI_Blog_Researcher(self) -> Agent:
+        return Agent(
+            config=self.agents_config['AI_Blog_Researcher'],
+            tool=[search_tool],
+            llm=self.openai_llm
+        )
 
     @agent
     def Content_Strategist(self) -> Agent:
         return Agent(
             config=self.agents_config['Content_Strategist'],
-            # verbose=True,
-            tool=[search_tool],
             llm=self.openai_llm
         )
 
@@ -49,43 +59,47 @@ class BloggerAgent():
     def Creative_Blogger(self) -> Agent:
         return Agent(
             config=self.agents_config['Creative_Blogger'],
-            # verbose=True,
-            llm=self.groq_llm
+            llm=self.openai_llm
         )
 
     @agent
     def SEO_Analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['SEO_Analyst'],
-            # verbose=True,
             llm=self.openai_llm
         )
 
     @task
-    def research_task(self) -> Task:
+    def blog_researcher_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['blog_researcher_task'],
+        )
+
+    @task
+    def content_strategy_task(self) -> Task:
         return Task(
             config=self.tasks_config['content_strategy_task'],
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def content_creation_task(self) -> Task:
         return Task(
             config=self.tasks_config['content_creation_task'],
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def seo_optimization_task(self) -> Task:
         return Task(
             config=self.tasks_config['seo_optimization_task'],
-            output_file='new_blog.md'
+            return_output=True
         )
 
     @crew
     def crew(self) -> Crew:
         """Creates the BloggerAgent crew"""
         return Crew(
-            agents=self.agents,  # Automatically created by the @agent decorator
-            tasks=self.tasks,  # Automatically created by the @task decorator
+            agents=self.agents,
+            tasks=self.tasks,
             process=Process.sequential,
             verbose=True,
         )

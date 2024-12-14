@@ -1,40 +1,45 @@
+blog_researcher_task:
+  description: >
+    Research the technical and conceptual aspects of {topic}. Summarize key ideas, real-world examples, technical challenges, and potential solutions in a structured format.
+  expected_output: >
+    A research document including:
+      Definition: A concise definition of {topic}.
+      Key Concepts: Explanation of core ideas or processes involved.
+      Applications: Real-world use cases and examples.
+      Challenges & Solutions: Technical or practical challenges and current solutions.
+      References: Any notable research papers or resources (e.g., McMahan et al.'s paper for Federated Learning).
+  agent: AI_Blog_Researcher
+
 content_strategy_task:
   description: >
-    Create a detailed outline for a blog post about {topic}.
-    Identify the key points, structure, and audience tone that will resonate best.
-    Provide a brief explanation for each section's importance and suggest a call-to-action (CTA).
+    Create a detailed blog outline for {topic}. Use the research material to define the structure, ensuring it resonates with the audience. Include section explanations and a logical flow.
   expected_output: >
-    A structured outline with the following:
-    - Title of the blog
-    - Headings and subheadings
-    - Brief explanation of each section
-    - Suggested call-to-action (CTA)
+    A structured blog outline with:
+      Title: Catchy and relevant to {topic}.
+      Headings/Subheadings: Organized to provide clarity and logical progression.
+      Section Explanation: A brief note about each section's purpose and importance.
   agent: Content_Strategist
 
 content_creation_task:
   description: >
-    Write a complete blog post based on the provided outline for {topic}.
-    Make the content engaging, informative, and tailored to the intended audience.
-    Use a conversational tone and include examples, code, or data points to make it relatable.
+    Write an engaging, insightful, and technically accurate blog post based on the provided outline for {topic}. Make the content relatable and use storytelling to simplify complex ideas.
   expected_output: >
-    A well-written blog post formatted in markdown (without '```') with:
-    - Engaging introduction
-    - Detailed sections based on the outline
-    - A concise and compelling conclusion
+    A fully written blog post with:
+      Title & Introduction: Clearly defining the topic and its significance.
+      Main Content: Detailed, section-wise explanation including examples, practical applications, and a step-by-step breakdown of processes where applicable.
+      Conclusion: Summarize key points, emphasizing the broader impact of the topic.
   agent: Creative_Blogger
 
 seo_optimization_task:
   description: >
-    Optimize the completed blog post about {topic} for search engines.
-    Research and identify relevant keywords for the topic and seamlessly integrate them into the blog content.
-    Revise the title to be SEO-friendly while maintaining reader engagement.
-    Improve readability and formatting for a better user experience and search ranking.
+    Optimize the blog post for search engines while preserving its narrative style. Research relevant keywords and incorporate them naturally. Format the content to improve readability and ensure it ranks well.
   expected_output: >
-    An optimized version of the blog post with:
-    - Keywords naturally incorporated into the content
-    - A revised, SEO-friendly title integrated into the blog
-    - Inline improvements to readability, structure, or flow, if necessary
-    - dont include the preamble, blog need to start with title and end with conclusion.
-    - the response should be in html format only body part. and body should have 2 divs, one for title and another for content.
-    for headings give strong tag
+    A fully optimized blog post in HTML format with:
+      Keywords: Integrated seamlessly into the content.
+      SEO-friendly Title: Revised for search ranking.
+      HTML Format:
+          <div>
+            <div><strong>'title'</strong></div>
+            <div>'content' all subheading needs to have <strong> tag </div>
+          </div>
   agent: SEO_Analyst
