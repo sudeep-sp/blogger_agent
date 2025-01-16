@@ -1,3 +1,4 @@
 .env
 __pycache__/
 new_blog.md
+.DS_Store

@@ -40,6 +40,13 @@ seo_optimization_task:
       HTML Format:
           <div>
             <div><strong>'title'</strong></div>
-            <div>'content' all subheading needs to have <strong> tag </div>
+            <div>
+             <section>
+              <h2><strong>'heading'</strong></h2>
+              <p>'content'</p>
+              </section>
+              ...
+            </div>
           </div>
+
   agent: SEO_Analyst
