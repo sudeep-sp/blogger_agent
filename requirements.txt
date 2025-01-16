@@ -1,0 +1,6 @@
+langtrace_python_sdk
+fastapi
+pydantic
+crewai
+crewai_tools
+python-dotenv
