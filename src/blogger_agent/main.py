@@ -53,4 +53,3 @@ async def generate_blog(request: BlogRequest):
         logger.error(f"Error generating blog: {str(e)}")
         raise HTTPException(
             status_code=500, detail=f"Error generating blog: {str(e)}")
-

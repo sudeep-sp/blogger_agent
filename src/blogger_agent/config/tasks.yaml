@@ -7,7 +7,7 @@ blog_researcher_task:
       Key Concepts: Explanation of core ideas or processes involved.
       Applications: Real-world use cases and examples.
       Challenges & Solutions: Technical or practical challenges and current solutions.
-      References: Any notable research papers or resources (e.g., McMahan et al.'s paper for Federated Learning).
+      References: Any notable research papers or resources (e.g., McMahan et al.'s paper for Federated Learning or websites you vistied to collect the data).
   agent: AI_Blog_Researcher
 
 content_strategy_task:
