@@ -4,3 +4,4 @@ pydantic
 crewai
 crewai_tools
 python-dotenv
+botocore
