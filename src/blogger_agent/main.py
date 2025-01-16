@@ -53,3 +53,7 @@ async def generate_blog(request: BlogRequest):
         logger.error(f"Error generating blog: {str(e)}")
         raise HTTPException(
             status_code=500, detail=f"Error generating blog: {str(e)}")
+        
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8080)
